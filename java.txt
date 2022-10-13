@@ -1,0 +1,68 @@
+package pratice1;
+import java.util.*;
+public class test {
+	public static void main(String ars[]) {
+		String goodsname ="红牛";  //商品名称
+		int goodsstock = 10;      //商品库存
+		double goodsprice = 5.0;//商品单价
+		
+		System.out.println("\t\t\t\tMy Store\t\t\t");
+		System.out.println("************************************************************");
+		System.out.println("商品名称\t\t\t商品单价\t\t\t商品库存");
+		System.out.println(goodsname +"     "+goodsprice+"      "+goodsstock);
+		System.out.println("************************************************************");
+		System.out.println("请输入购买数量：");
+		
+		Scanner getinput = new Scanner(System.in);
+		int number = getinput.nextInt();
+		goodsstock-=number;
+		double shouldpay=number*goodsprice;
+		System.out.println("您应支付："+shouldpay+"请支付：");
+		double money=getinput.nextDouble();
+		double change=money-shouldpay;
+		System.out.println("************************************************************");
+		System.out.println("\t\t购物小票\t\t\t\t\t\t\t");
+		System.out.println("实收："+money);
+		System.out.println("应收："+shouldpay);
+		System.out.println("找零："+change);
+		System.out.println("欢迎下次光临");
+		System.out.println("************************************************************");
+
+}	
+}
+
+
+
+
+package pratice1;
+import java.util.Scanner;
+
+public class mytext {
+	public static void main(String ars[]) {
+		String [] names=new String[4];
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<names.length;i++)
+		{
+			names [i] = sc.next();//直接读取下一个字符数据
+		}
+		sc.close();//Scanner 读入后记得关闭
+		/*for(String n:names)
+		{
+			System.out.println(n);
+		}*/
+		
+		//k扩容
+		String []newnames=new String[2*names.length];
+		for(int i=0;i<names.length;i++)
+		{
+			newnames[i]=names[i];
+			
+		}
+		names=newnames;//新数组覆盖旧数组
+		newnames[5]="mimi";
+		for(String n:newnames)
+		{
+			System.out.println(n);
+		}
+	}
+}
